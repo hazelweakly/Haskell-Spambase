@@ -1,0 +1,54 @@
+name:                spambase
+version:             0.1.0.0
+github:              "jared-w/spambase"
+license:             BSD3
+author:              "Jared Weakly"
+maintainer:          "jweakly@pdx.edu"
+copyright:           "Copyright: (c) 2017 Jared Weakly"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+# Metadata used when publishing your package
+# synopsis:            Short description of your package
+# category:            Web
+
+# To avoid duplicated efforts in documentation and dealing with the
+# complications of embedding Haddock markup inside cabal files, it is
+# common to point users to the README.md file.
+description:         Please see the README on GitHub at <https://github.com/jared-w/spambase#readme>
+
+dependencies:
+- base >= 4.7 && < 5
+- cassava
+- vector
+- bytestring
+- statistics
+- split
+- time
+
+library:
+  source-dirs: src
+
+executables:
+  spambase-exe:
+    main:                Main.hs
+    source-dirs:         app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - spambase
+
+tests:
+  spambase-test:
+    main:                Spec.hs
+    source-dirs:         test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - spambase
